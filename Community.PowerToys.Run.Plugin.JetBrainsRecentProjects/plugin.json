@@ -1,0 +1,14 @@
+{
+  "ID": "E3318C75-337A-4A11-918A-90BB4F909502",
+  "ActionKeyword": "jb",
+  "IsGlobal": true,
+  "Name": "JetBrains Recent Projects",
+  "Author": "gyoge",
+  "Version": "0.1.0",
+  "Language": "csharp",
+  "Website": "https://github.com/gyoge0/JetBrainsRecentProjects/",
+  "ExecuteFileName": "Community.PowerToys.Run.Plugin.JetBrainsRecentProjects.dll",
+  "IcoPathDark": "Images\\jb_beam.dark.png",
+  "IcoPathLight": "Images\\jb_beam.light.png",
+  "DynamicLoading": false
+}

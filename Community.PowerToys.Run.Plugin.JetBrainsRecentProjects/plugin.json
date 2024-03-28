@@ -10,5 +10,5 @@
   "ExecuteFileName": "Community.PowerToys.Run.Plugin.JetBrainsRecentProjects.dll",
   "IcoPathDark": "Images\\jb_beam.dark.png",
   "IcoPathLight": "Images\\jb_beam.light.png",
-  "DynamicLoading": false
+  "DynamicLoading": true
 }

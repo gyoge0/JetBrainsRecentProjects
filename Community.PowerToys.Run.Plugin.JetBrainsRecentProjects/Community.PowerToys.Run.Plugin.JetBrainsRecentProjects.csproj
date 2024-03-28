@@ -5,6 +5,7 @@
         <Platforms>x64;ARM64</Platforms>
         <PlatformTarget>$(Platform)</PlatformTarget>
         <UseWPF>true</UseWPF>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
     </PropertyGroup>
 
     <PropertyGroup>

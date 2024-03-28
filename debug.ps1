@@ -20,6 +20,7 @@ $dest = "$env:LOCALAPPDATA\Microsoft\PowerToys\PowerToys Run\Plugins\$project"
 $files = @(
     "$fullName.deps.json",
     "$fullName.dll",
+    "Newtonsoft.Json.dll",
     "plugin.json",
     "Images"
 )

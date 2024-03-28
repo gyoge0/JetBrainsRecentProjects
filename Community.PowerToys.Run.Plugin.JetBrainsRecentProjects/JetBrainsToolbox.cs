@@ -6,6 +6,7 @@ namespace Community.PowerToys.Run.Plugin.JetBrainsRecentProjects;
 
 public class JetBrainsToolbox(string installLocation)
 {
+
     public string InstallLocation { get; set; } = installLocation;
 
     private const string StateFilePath = "state.json";
@@ -70,16 +71,20 @@ public class JetBrainsToolbox(string installLocation)
     public List<Project> LoadProjects()
     {
         Tuple<StateDto, List<ProjectDto>>? tuple = ReadFiles();
-        if (tuple is null)
+        // ReSharper disable once IdentifierTypo
+        if (tuple is not var (state, projectDtos))
         {
             return [];
         }
 
-        var ides = tuple.Item1.Tools
+        var ides = state.Tools
             .Select(dto => new Ide(dto))
+            .Where(ide => Path.Exists(ide.Executable))
             .ToDictionary(ide => ide.ChannelId);
 
-        var projects = tuple.Item2
+        var projects = projectDtos
+            .Where(dto => ides.ContainsKey(dto.DefaultIde))
+            .Where(dto => Path.Exists(dto.Path))
             .Select(dto => new Project(dto, ides[dto.DefaultIde]))
             .ToList();
 

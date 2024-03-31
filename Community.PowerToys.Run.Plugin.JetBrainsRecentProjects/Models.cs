@@ -2,17 +2,20 @@
 
 namespace Community.PowerToys.Run.Plugin.JetBrainsRecentProjects;
 
-public class Project(ProjectDto dto, Ide ide)
-{
-    public string Name { get; } = dto.Name;
-    public string Path { get; } = dto.Path;
-    public string DisplayPath { get; } = dto.DisplayPath;
-    public Ide Ide { get; } = ide;
-}
+public record Project(
+    string Name,
+    string Path,
+    string DisplayPath,
+    Ide Ide
+);
 
-public class Ide(IdeDto dto)
+public record Ide(
+    string ChannelId,
+    string ToolId,
+    string DisplayName,
+    string InstallLocation,
+    string LaunchCommand
+)
 {
-    public string ChannelId { get; } = dto.ChannelId;
-    public string DisplayName { get; } = dto.DisplayName;
-    public string Executable => Path.Join(dto.InstallLocation, dto.LaunchCommand);
+    public string Executable => Path.Join(InstallLocation, LaunchCommand);
 }

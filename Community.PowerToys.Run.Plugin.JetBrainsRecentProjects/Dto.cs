@@ -1,22 +1,29 @@
-﻿using Newtonsoft.Json;
-// ReSharper disable ClassNeverInstantiated.Global
+﻿// ReSharper disable ClassNeverInstantiated.Global
 
 namespace Community.PowerToys.Run.Plugin.JetBrainsRecentProjects;
 
 public record StateDto(
-    List<IdeDto> Tools
+    List<IdeFromStateDto> Tools
 );
 
-public record IdeDto(
+public record IdeFromStateDto(
     string ChannelId,
+    string ToolId,
     string DisplayName,
     string InstallLocation,
     string LaunchCommand
+);
+
+public record IdeFromProjectsDto(
+    string ChannelId,
+    string ToolId,
+    DateTime ProjectLastModified
 );
 
 public record ProjectDto(
     string Name,
     string Path,
     string DisplayPath,
-    [JsonProperty("defaultNewOpenItem")] string DefaultIde
+    string DefaultNewOpenItem,
+    List<IdeFromProjectsDto> NewOpenItems
 );
